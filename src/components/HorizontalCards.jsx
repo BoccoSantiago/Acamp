@@ -36,7 +36,7 @@ const HorizontalCardsStyled = styled.div`
       padding: 28px 20px 20px 20px;
       margin: 0 0px 0 16px;
       &:nth-child(3) {
-        margin-right: 16px;
+        margin-right: 26px;
       }
       img {
         width: 30px;
