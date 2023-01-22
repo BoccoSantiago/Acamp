@@ -6,7 +6,7 @@ import handTwo from "../assets/icons/hand-two.svg";
 import handThree from "../assets/icons/hand-three.svg";
 
 const HorizontalCardsStyled = styled.div`
-  padding: 72px 0px 72px 0px;
+  padding: 72px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +36,7 @@ const HorizontalCardsStyled = styled.div`
       padding: 28px 20px 20px 20px;
       margin: 0 0px 0 16px;
       &:nth-child(3) {
-        margin-right: 26px;
+        margin-right: 16px;
       }
       img {
         width: 30px;
