@@ -6,13 +6,17 @@ html{
     margin: 0;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
-    max-width: 100vw
+    max-width: 100vw;
+    padding: 0;
+    margin: 0;
 }
 
-
  body{
+    display: flex;
+
+    justify-content: center;
+
     margin: 0;
-/*     position: relative; */
     overflow-x: hidden;
     padding: 0;
     width: 100%;

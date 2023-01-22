@@ -7,13 +7,15 @@ import caravan from "../assets/icons/caravan.svg";
 import tent from "../assets/icons/tent.svg";
 import trailer from "../assets/icons/trailer.svg";
 import electricity from "../assets/icons/electricity.svg";
+import star from "../assets/icons/star.svg";
 
 const HomeStyled = styled.div`
-  width: 343px;
   height: 748px;
-  margin: 0 16px;
-  background-color: ${colors.white};
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   .image_container {
     width: 343px;
@@ -127,7 +129,9 @@ function Home() {
           </p>
         </div>
         <div className="card__footer">
-          <p>⭐ 4.2</p>
+          <p>
+            <img src={star} alt="" /> 4.2
+          </p>
           <div className="amenities">
             <img src={caravan} alt="" />
             <img src={trailer} alt="" />

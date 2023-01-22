@@ -7,6 +7,7 @@ const HeaderStyled = styled.div`
   height: 246px;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0 16px;
   .wrapper {
     width: 343px;

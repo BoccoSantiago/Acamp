@@ -4,6 +4,8 @@ import footer from "../assets/images/footer2.png";
 import { colors } from "../styles";
 
 const StyledFooter = styled.div`
+  display: flex;
+  justify-content: center;
   .image_container {
     width: 375px;
     height: 580px;
