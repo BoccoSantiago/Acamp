@@ -21,16 +21,16 @@ const HorizontalCardsStyled = styled.div`
 
   .container {
     display: flex;
-    max-width: 375px;
+    max-width: 100vw;
     overflow-x: auto;
-    justify-content: left;
     &::-webkit-scrollbar {
       display: none;
     }
 
     .card {
       min-width: 295px;
-      height: 158px;
+      max-width: 295px;
+      max-height: 158px;
       border-radius: 20px;
       background-color: ${colors.red};
       padding: 28px 20px 20px 20px;
