@@ -10,7 +10,7 @@ const HorizontalCardsStyled = styled.div`
   }
   .cards {
     overflow-x: scroll;
-    overflow-y: hidden;
+    /*     overflow-y: hidden; */
     white-space: nowrap;
     padding: 0 0px 0 16px;
   }

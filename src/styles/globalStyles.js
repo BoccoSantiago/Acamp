@@ -4,13 +4,15 @@ import colors from "./colors";
 const GlobalStyle = createGlobalStyle`
 html{
     margin: 0;
-    
     font-family: 'Poppins', sans-serif;
-    
+    overflow-x: hidden;
+    max-width: 100vw
 }
+
 
  body{
     margin: 0;
+/*     position: relative; */
     overflow-x: hidden;
     padding: 0;
     width: 100%;
