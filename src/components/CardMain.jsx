@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { colors } from "../styles";
 import iconButton from "../assets/icons/IconButton.svg";
@@ -92,47 +92,30 @@ const CardFooter = styled.div`
   }
 `;
 
-function Card({
+function CardMain({
   image,
   title,
   address,
-  lat,
-  lng,
-  description,
   rating,
   price,
   currency,
   accommodationTypes,
   hasElectricity,
 }) {
-  useEffect(() => {
-    // 👇️ scroll to top on page load
-    window.scrollTo({ top: 0, left: 0 });
-  }, []);
-
   return (
     <HomeStyled>
       <Image image={image} />
       <TextContainer>
-        <h5 style={{ paddingBottom: "24px", opacity: 0.4 }}>Featured Acamp</h5>
-
         <h3>{title}</h3>
-        <a
-          href={`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`}
+        <h6
+          style={{
+            paddingBottom: "10px",
+            opacity: 0.4,
+            textDecorationLine: "underline",
+          }}
         >
-          <h6
-            style={{
-              paddingBottom: "10px",
-              opacity: 0.4,
-              textDecorationLine: "underline",
-            }}
-          >
-            {address}
-          </h6>
-        </a>
-        <div className="description">
-          <p>{description}</p>
-        </div>
+          {address}
+        </h6>
         <CardFooter>
           <p>
             <img src={star} alt="" /> {rating}
@@ -150,14 +133,10 @@ function Card({
             {hasElectricity && <img src={electricity} alt="electricity" />}
           </div>
           <p>{`${price} ${currency} / night`}</p>
-          <button>
-            <span>Book Now</span>
-            <img src={iconButton} alt="iconButton" />
-          </button>
         </CardFooter>
       </TextContainer>
     </HomeStyled>
   );
 }
 
-export default Card;
+export default CardMain;

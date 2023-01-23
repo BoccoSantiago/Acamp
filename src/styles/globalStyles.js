@@ -13,9 +13,7 @@ html{
 
  body{
     display: flex;
-
     justify-content: center;
-
     margin: 0;
     overflow-x: hidden;
     padding: 0;
