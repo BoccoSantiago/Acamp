@@ -1,20 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 import { colors } from "../styles";
-import iconButton from "../assets/icons/IconButton.svg";
 import caravan from "../assets/icons/caravan.svg";
 import tent from "../assets/icons/tent.svg";
 import trailer from "../assets/icons/trailer.svg";
 import electricity from "../assets/icons/electricity.svg";
 import star from "../assets/icons/star.svg";
 
-const HomeStyled = styled.div`
+const CardStyled = styled.div`
   width: 100%;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: all 0.2s;
+  &:hover {
+    transform: translateY(-5px);
+    transition: all 0.2s;
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 const Image = styled.div`
@@ -23,6 +31,9 @@ const Image = styled.div`
   background: ${(props) => `url(${props.image}) no-repeat center`};
   background-size: cover;
   border-radius: 20px 20px 0px 0px;
+  @media (min-width: 768px) {
+    border-radius: 20px 0px 0px 20px;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -50,6 +61,11 @@ const TextContainer = styled.div`
     line-height: 150%;
     letter-spacing: -0.01em;
     margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    border-radius: 0px 20px 20px 0px;
+    height: 242px;
   }
 `;
 
@@ -103,7 +119,7 @@ function CardMain({
   hasElectricity,
 }) {
   return (
-    <HomeStyled>
+    <CardStyled data-aos="fade-right">
       <Image image={image} />
       <TextContainer>
         <h3>{title}</h3>
@@ -135,7 +151,7 @@ function CardMain({
           <p>{`${price} ${currency} / night`}</p>
         </CardFooter>
       </TextContainer>
-    </HomeStyled>
+    </CardStyled>
   );
 }
 

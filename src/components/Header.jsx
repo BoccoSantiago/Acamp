@@ -25,8 +25,15 @@ function Header() {
   return (
     <HeaderStyled>
       <div className="wrapper">
-        <h1>Book a place to camp</h1>
-        <img src={sticker} alt="sticker" />
+        <h1 data-aos="fade-right" data-aos-duration="1500">
+          Book a place to camp
+        </h1>
+        <img
+          data-aos="fade-left"
+          data-aos-duration="1500"
+          src={sticker}
+          alt="sticker"
+        />
       </div>
     </HeaderStyled>
   );

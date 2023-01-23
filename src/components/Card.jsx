@@ -15,6 +15,9 @@ const HomeStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 const Image = styled.div`
@@ -23,6 +26,11 @@ const Image = styled.div`
   background: ${(props) => `url(${props.image}) no-repeat center`};
   background-size: cover;
   border-radius: 20px 20px 0px 0px;
+  @media (min-width: 768px) {
+    border-radius: 20px 0px 0px 20px;
+    height: 490px;
+    width: 500px;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -50,6 +58,10 @@ const TextContainer = styled.div`
     line-height: 150%;
     letter-spacing: -0.01em;
     margin: 0;
+  }
+  @media (min-width: 768px) {
+    border-radius: 0px 20px 20px 0px;
+    height: 442px;
   }
 `;
 
@@ -106,16 +118,14 @@ function Card({
   hasElectricity,
 }) {
   useEffect(() => {
-    // 👇️ scroll to top on page load
     window.scrollTo({ top: 0, left: 0 });
   }, []);
 
   return (
-    <HomeStyled>
+    <HomeStyled data-aos="zoom-in">
       <Image image={image} />
       <TextContainer>
         <h5 style={{ paddingBottom: "24px", opacity: 0.4 }}>Featured Acamp</h5>
-
         <h3>{title}</h3>
         <a
           href={`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`}

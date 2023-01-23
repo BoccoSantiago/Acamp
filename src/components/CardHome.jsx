@@ -16,76 +16,90 @@ const HomeStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  .image_container {
-    width: 343px;
-    height: 290px;
-    background: url(${home}) no-repeat center;
-    background-size: cover;
-    border-radius: 20px 20px 0px 0px;
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
-  .text_container {
-    max-width: 295px;
-    min-width: 295px;
-    padding: 24px;
-    background-color: ${colors.white};
-    border-radius: 0 0 20px 20px;
+`;
 
-    .description {
-      white-space: wrap;
-      width: 295px;
-      height: 144px;
-      display: -webkit-box;
-      -webkit-line-clamp: 6;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-bottom: 24px;
+const Image = styled.div`
+  width: 343px;
+  height: 290px;
+  background: ${(props) => `url(${props.image}) no-repeat center`};
+  background-size: cover;
+  border-radius: 20px 20px 0px 0px;
+  @media (min-width: 768px) {
+    border-radius: 20px 0px 0px 20px;
+    height: 490px;
+    width: 500px;
+  }
+`;
+
+const TextContainer = styled.div`
+  min-width: 295px;
+  padding: 24px;
+  background-color: ${colors.white};
+  border-radius: 0 0 20px 20px;
+
+  .description {
+    white-space: wrap;
+    width: 295px;
+    height: 144px;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 24px;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  @media (min-width: 768px) {
+    border-radius: 0px 20px 20px 0px;
+    height: 442px;
+  }
+`;
+
+const CardFooter = styled.div`
+  .accomodation {
+    display: flex;
+    align-items: baseline;
+    width: 106px;
+    padding: 0 0 8px 0;
+    img {
+      padding: 0 1px;
     }
-    p {
+  }
+  p {
+    padding: 0 0 8px 0;
+  }
+  button {
+    display: flex;
+    background-color: transparent;
+    border: 1.5px solid ${colors.black};
+    height: 48px;
+    width: 295px;
+    padding: 0 16px 0 16px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    font-weight: 500px;
+    cursor: pointer;
+    &:active {
+      background-color: ${colors.gray5};
+    }
+    span {
+      font-size: large;
       font-weight: 500;
+      font-family: "Poppins", sans-serif;
       font-size: 16px;
-      line-height: 150%;
       letter-spacing: -0.01em;
-      margin: 0;
-    }
-  }
-  .card__footer {
-    .amenities {
-      display: flex;
-      justify-content: baseline;
-      width: 106px;
-      padding: 0 0 8px 0;
-      img {
-        padding: 0 1px;
-      }
-    }
-    p {
-      padding: 0 0 8px 0;
-    }
-    button {
-      display: flex;
-      background-color: transparent;
-      border: 1.5px solid ${colors.black};
-      height: 48px;
-      width: 295px;
-      padding: 0 16px 0 16px;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 10px;
-      font-weight: 500px;
-      cursor: pointer;
-      &:active {
-        background-color: ${colors.gray5};
-      }
-      span {
-        font-size: large;
-        font-weight: 500;
-        font-family: "Poppins", sans-serif;
-        font-size: 16px;
-        letter-spacing: -0.01em;
-        color: ${colors.black};
-      }
+      color: ${colors.black};
     }
   }
 `;
@@ -97,8 +111,8 @@ function Home() {
 
   return (
     <HomeStyled>
-      <div className="image_container" />
-      <div className="text_container">
+      <Image image={home} />
+      <TextContainer>
         <h5 style={{ paddingBottom: "24px", opacity: 0.4 }}>Featured Acamp</h5>
 
         <h3>Camp Stora Blåsjön</h3>
@@ -117,7 +131,7 @@ function Home() {
             motorhomes, caravans and tents. Here you can enjoy the wonderful
             view of Stora Blåsjön and the mountains in the background. From Camp
             Stora Blåsjön you are close to many attractions and it is a good
-            place to start for day trips.   5 km to Mesklumpen's top 6 km to
+            place to start for day trips. 5 km to Mesklumpen's top 6 km to
             Brakkåfallet 6 km to the Norwegian border 9 km to Ankarede (From
             here there is a nice hike to Lejarfallet, approx. 5 km hike) 10 km
             to Korallgrottan 11 km to Marmorgrottan 20 km to Gaustafallet 27 km
@@ -131,23 +145,23 @@ function Home() {
             https://argakocken.se
           </p>
         </div>
-        <div className="card__footer">
+        <CardFooter>
           <p>
-            <img src={star} alt="" /> 4.2
+            <img src={star} alt="star" /> 4.2
           </p>
           <div className="amenities">
-            <img src={caravan} alt="" />
-            <img src={trailer} alt="" />
-            <img src={tent} alt="" />
-            <img src={electricity} alt="" />
+            <img src={caravan} alt="caravan" />
+            <img src={trailer} alt="trailer" />
+            <img src={tent} alt="tent" />
+            <img src={electricity} alt="electricity" />
           </div>
           <p>250 SEK / night</p>
           <button>
             <span>Book Now</span>
             <img src={iconButton} alt="iconButton" />
           </button>
-        </div>
-      </div>
+        </CardFooter>
+      </TextContainer>
     </HomeStyled>
   );
 }

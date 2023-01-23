@@ -6,7 +6,7 @@ import handTwo from "../assets/icons/hand-two.svg";
 import handThree from "../assets/icons/hand-three.svg";
 
 const HorizontalCardsStyled = styled.div`
-  padding: 72px 0px;
+  padding: 72px 0px 0px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,12 +17,16 @@ const HorizontalCardsStyled = styled.div`
     width: 343px;
     text-align: center;
     padding: 0 32px 32px 32px;
+    @media (min-width: 768px) {
+      width: 500px;
+    }
   }
 
   .container {
     display: flex;
     max-width: 100vw;
     overflow-x: auto;
+    height: 278px;
     &::-webkit-scrollbar {
       display: none;
     }
@@ -54,25 +58,25 @@ function HorizontalCards() {
     <HorizontalCardsStyled>
       <h2>What can you expect from an Acamp host?</h2>
       <div className="container">
-        <div className="card">
-          <img src={handOne} alt="" />
+        <div className="card" data-aos="fade-up">
+          <img src={handOne} alt="" data-aos="fade-up" />
           <h4>
             Beautiful tent campsites, creative food artisans, boutique campsites
             and pristine private land.
           </h4>
         </div>
-        <div className="card">
-          <img src={handTwo} alt="" />
+        <div className="card" data-aos="fade-up">
+          <img src={handTwo} alt="" data-aos="fade-up" />
           <h4>
-            Beautiful tent campsites, creative food artisans, boutique campsites
-            and pristine private land.
+            Our community of Hosts Keeps on growing, unlocking new destinations
+            by the week.
           </h4>
         </div>
-        <div className="card">
-          <img src={handThree} alt="" />
+        <div className="card" data-aos="fade-up">
+          <img src={handThree} alt="" data-aos="fade-up" />
           <h4>
-            Beautiful tent campsites, creative food artisans, boutique campsites
-            and pristine private land.
+            A personal touch, both by your Host and by us. Our team is always
+            there for you.
           </h4>
         </div>
       </div>
