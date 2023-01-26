@@ -8,7 +8,7 @@ import trailer from "../assets/icons/trailer.svg";
 import electricity from "../assets/icons/electricity.svg";
 import star from "../assets/icons/star.svg";
 
-const HomeStyled = styled.div`
+const CardStyled = styled.div`
   width: 100%;
   border-radius: 20px;
   display: flex;
@@ -104,31 +104,34 @@ const CardFooter = styled.div`
   }
 `;
 
-function Card({
-  image,
-  title,
-  address,
-  lat,
-  lng,
-  description,
-  rating,
-  price,
-  currency,
-  accommodationTypes,
-  hasElectricity,
-}) {
+function Card({ data }) {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
   }, []);
 
+  const {
+    coverImage,
+    title,
+    address,
+    lat,
+    lng,
+    description,
+    rating,
+    price,
+    currency,
+    accommodationTypes,
+    hasElectricity,
+  } = data;
+
   return (
-    <HomeStyled data-aos="zoom-in">
-      <Image image={image} />
+    <CardStyled data-aos="zoom-in">
+      <Image image={coverImage} />
       <TextContainer>
         <h5 style={{ paddingBottom: "24px", opacity: 0.4 }}>Featured Acamp</h5>
         <h3>{title}</h3>
         <a
           href={`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`}
+          target="_blank"
         >
           <h6
             style={{
@@ -166,7 +169,7 @@ function Card({
           </button>
         </CardFooter>
       </TextContainer>
-    </HomeStyled>
+    </CardStyled>
   );
 }
 

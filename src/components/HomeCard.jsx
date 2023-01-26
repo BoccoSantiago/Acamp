@@ -108,7 +108,7 @@ const CardFooter = styled.div`
   }
 `;
 
-function CardMain({
+function HomeCard({
   image,
   title,
   address,
@@ -155,4 +155,4 @@ function CardMain({
   );
 }
 
-export default CardMain;
+export default HomeCard;

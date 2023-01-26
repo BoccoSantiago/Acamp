@@ -1,3 +1,3 @@
-export { default as Alt } from "./Alternative";
+export { default as Details } from "./Details";
+export { default as DefaultDesign } from "./DefaultDesign";
 export { default as Home } from "./Home";
-export { default as Main } from "./Main";

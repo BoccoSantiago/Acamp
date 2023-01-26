@@ -104,7 +104,7 @@ const CardFooter = styled.div`
   }
 `;
 
-function Home() {
+function DefaultCard() {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
   }, []);
@@ -166,4 +166,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default DefaultCard;

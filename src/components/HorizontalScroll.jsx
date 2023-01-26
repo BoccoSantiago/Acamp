@@ -53,35 +53,40 @@ const HorizontalCardsStyled = styled.div`
   }
 `;
 
-function HorizontalCards() {
+const textCards = [
+  {
+    id: 1,
+    img: handOne,
+    text: "Beautiful tent campsites, creative food artisans, boutique campsites and pristine private land.",
+  },
+  {
+    id: 2,
+    img: handTwo,
+    text: "Our community of Hosts Keeps on growing, unlocking new destinations by the week.",
+  },
+  {
+    id: 3,
+    img: handThree,
+    text: "A personal touch, both by your Host and by us. Our team is always there for you.",
+  },
+];
+
+function HorizontalScroll() {
   return (
     <HorizontalCardsStyled>
       <h2>What can you expect from an Acamp host?</h2>
       <div className="container">
-        <div className="card" data-aos="fade-up">
-          <img src={handOne} alt="" data-aos="fade-up" />
-          <h4>
-            Beautiful tent campsites, creative food artisans, boutique campsites
-            and pristine private land.
-          </h4>
-        </div>
-        <div className="card" data-aos="fade-up">
-          <img src={handTwo} alt="" data-aos="fade-up" />
-          <h4>
-            Our community of Hosts Keeps on growing, unlocking new destinations
-            by the week.
-          </h4>
-        </div>
-        <div className="card" data-aos="fade-up">
-          <img src={handThree} alt="" data-aos="fade-up" />
-          <h4>
-            A personal touch, both by your Host and by us. Our team is always
-            there for you.
-          </h4>
-        </div>
+        {textCards.map(({ id, img, text }) => {
+          return (
+            <div key={id} className="card" data-aos="fade-up">
+              <img src={img} alt="" data-aos="fade-up" />
+              <h4>{text}</h4>
+            </div>
+          );
+        })}
       </div>
     </HorizontalCardsStyled>
   );
 }
 
-export default HorizontalCards;
+export default HorizontalScroll;

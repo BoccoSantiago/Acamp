@@ -28,9 +28,6 @@ const StyledFooter = styled.div`
         margin-left: auto;
         margin-right: auto;
         color: ${colors.white};
-        @media (min-width: 768px) {
-          width: 500px;
-        }
       }
     }
   }
@@ -43,6 +40,11 @@ const StyledFooter = styled.div`
       &:hover {
         background-size: 105%;
         transition: all 1s;
+      }
+      .footer_text {
+        h1 {
+          width: 500px;
+        }
       }
     }
   }
