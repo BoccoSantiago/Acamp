@@ -20,6 +20,9 @@ html{
     width: 100%;
     min-height: 100vh;
     background-color: ${colors.dirtyWhite};
+    @media (min-width: 768px){
+      width: auto;
+    }
    
   }
 
@@ -79,6 +82,11 @@ html{
     line-height: 140%;
     color: ${colors.black}; 
   
+  }
+
+  a{
+    color: ${colors.black};
+    text-decoration: none;
   }
 
 

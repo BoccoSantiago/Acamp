@@ -19,6 +19,9 @@ const HeaderStyled = styled.div`
     z-index: -1;
     right: -64px;
   }
+  @media (min-width: 768px) {
+    padding-top: 50px;
+  }
 `;
 
 function Header() {

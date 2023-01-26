@@ -1,9 +1,23 @@
-import { DefaultDesign, Details, Home } from "../pages";
-import { createBrowserRouter } from "react-router-dom";
+import { Details, Home } from "../pages";
+import { createBrowserRouter, Outlet } from "react-router-dom";
+import { NavBar } from "../components";
+
+function LayOut() {
+  return (
+    <>
+      <NavBar />
+      <Outlet></Outlet>
+    </>
+  );
+}
 
 export const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
-  { path: "/listing/:id", element: <Details /> },
-  { path: "/default-design", element: <DefaultDesign /> },
-  { path: "/*", element: <Home /> },
+  {
+    element: <LayOut />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/:id", element: <Details /> },
+      { path: "/*", element: <Home /> },
+    ],
+  },
 ]);

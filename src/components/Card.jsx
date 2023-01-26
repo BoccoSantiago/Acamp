@@ -28,8 +28,8 @@ const Image = styled.div`
   border-radius: 20px 20px 0px 0px;
   @media (min-width: 768px) {
     border-radius: 20px 0px 0px 20px;
-    height: 490px;
     width: 500px;
+    height: ${({ description }) => (description ? "490px" : "324px")};
   }
 `;
 
@@ -61,11 +61,11 @@ const TextContainer = styled.div`
   }
   @media (min-width: 768px) {
     border-radius: 0px 20px 20px 0px;
-    height: 442px;
+    height: ${({ description }) => (description ? "442px" : "280px")};
   }
 `;
 
-const CardFooter = styled.div`
+const TextFooter = styled.div`
   .accomodation {
     display: flex;
     align-items: baseline;
@@ -104,35 +104,37 @@ const CardFooter = styled.div`
   }
 `;
 
-function Card({ data }) {
+function Card({
+  image,
+  title,
+  address,
+  lat,
+  lng,
+  description,
+  rating,
+  price,
+  currency,
+  accommodationTypes,
+  hasElectricity,
+}) {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
   }, []);
 
-  const {
-    coverImage,
-    title,
-    address,
-    lat,
-    lng,
-    description,
-    rating,
-    price,
-    currency,
-    accommodationTypes,
-    hasElectricity,
-  } = data;
+  const handleLinkUrl = () => {
+    window.open(
+      `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`,
+      "_blank"
+    );
+  };
 
   return (
     <CardStyled data-aos="zoom-in">
-      <Image image={coverImage} />
-      <TextContainer>
+      <Image image={image} description={description} />
+      <TextContainer description={description}>
         <h5 style={{ paddingBottom: "24px", opacity: 0.4 }}>Featured Acamp</h5>
         <h3>{title}</h3>
-        <a
-          href={`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`}
-          target="_blank"
-        >
+        <span onClick={handleLinkUrl} style={{ cursor: "pointer" }}>
           <h6
             style={{
               paddingBottom: "10px",
@@ -142,11 +144,13 @@ function Card({ data }) {
           >
             {address}
           </h6>
-        </a>
-        <div className="description">
-          <p>{description}</p>
-        </div>
-        <CardFooter>
+        </span>
+        {description && (
+          <div className="description">
+            <p>{description}</p>
+          </div>
+        )}
+        <TextFooter>
           <p>
             <img src={star} alt="" /> {rating}
           </p>
@@ -164,10 +168,10 @@ function Card({ data }) {
           </div>
           <p>{`${price} ${currency} / night`}</p>
           <button>
-            <span>Book Now</span>
+            {description ? <span>Book Now</span> : <span>More Details</span>}
             <img src={iconButton} alt="iconButton" />
           </button>
-        </CardFooter>
+        </TextFooter>
       </TextContainer>
     </CardStyled>
   );

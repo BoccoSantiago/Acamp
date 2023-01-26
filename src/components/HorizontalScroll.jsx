@@ -26,7 +26,8 @@ const HorizontalCardsStyled = styled.div`
     display: flex;
     max-width: 100vw;
     overflow-x: auto;
-    height: 278px;
+    overflow-y: hidden;
+    padding-bottom: 72px;
     &::-webkit-scrollbar {
       display: none;
     }
