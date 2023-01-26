@@ -7,7 +7,7 @@ const NavBarStyled = styled.div`
   width: 100%;
   padding: 20px 0 20px 40px;
 
-  background-image: linear-gradient(#ffb9b9, #ffffff31);
+  background-image: linear-gradient(#ffffff, #ffffff31);
   position: fixed;
   z-index: 1;
   left: 0;
@@ -35,7 +35,12 @@ function NavBar() {
     <div>
       <NavBarStyled id="navbar" location={location.pathname}>
         <h1 data-aos="fade-down">
-          <Link to="/">
+          <Link
+            onClick={() =>
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+            }
+            to="/"
+          >
             <svg
               width="36"
               height="42.75"

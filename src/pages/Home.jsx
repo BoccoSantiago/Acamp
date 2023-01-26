@@ -26,8 +26,6 @@ function Home() {
     window.scrollTo({ top: 0, left: 0 });
   }, []);
 
-  console.log(data);
-
   return (
     <>
       <HomeStyled>

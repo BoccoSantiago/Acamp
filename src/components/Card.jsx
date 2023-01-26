@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { colors } from "../styles";
 import iconButton from "../assets/icons/IconButton.svg";
@@ -117,10 +117,6 @@ function Card({
   accommodationTypes,
   hasElectricity,
 }) {
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0 });
-  }, []);
-
   const handleLinkUrl = () => {
     window.open(
       `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`,
